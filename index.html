@@ -121,6 +121,56 @@ button{font-family:inherit;color:inherit;cursor:pointer}
 #story p{margin:0 0 12px;font-size:14px;line-height:1.8;color:#d6dcea}
 #story ul{margin:0 0 14px;padding:0;list-style:none}
 #story li{position:relative;padding:5px 0 5px 16px;font-size:13px;color:#cdd4e4;line-height:1.5}
+/* 擴張過程 */
+body.camp #polG{opacity:.3;filter:saturate(.35);pointer-events:none}
+body.camp #labelG{opacity:.4}
+body.camp #markG,body.camp #routeG{display:none}
+#campG{pointer-events:none}
+#campG .cum path{fill-opacity:.8;stroke-width:1.3;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+#campG .neu path{fill-opacity:.95;stroke:#fff;stroke-width:1.8;vector-effect:non-scaling-stroke;stroke-linejoin:round;animation:cglow 1.3s ease-in-out 2}
+@keyframes cglow{50%{fill-opacity:.3}}
+#campG path.cp{fill:none;stroke:rgba(255,255,255,.5);stroke-width:2;stroke-dasharray:5 6;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+#campG path.cp.foe{stroke:rgba(255,120,120,.55)}
+#campG path.cp.cur{stroke:#ffe08a;stroke-width:3.4;stroke-dasharray:none;filter:drop-shadow(0 0 2px rgba(0,0,0,.9))}
+#campG path.cp.cur.foe{stroke:#ff6b6b}
+.carrow path{fill:#ffe08a;stroke:#3a2a05;stroke-width:1.2}
+.carrow.foe path{fill:#ff6b6b;stroke:#3a0505}
+.cm .dia{fill:#ffcf5a;stroke:#3a2a05;stroke-width:1.4;transform:rotate(45deg)}
+.cm:not(.cur) .dia{fill:#d8c48f;opacity:.7;transform:rotate(45deg) scale(.5)}
+body.camp #tl{opacity:.55}
+body.camp #tl:hover{opacity:1}
+@media (max-width:760px){body.camp #tl{display:none}body.camp #cap{bottom:12px}}
+@media (max-height:500px) and (min-width:561px){body.camp #tl{display:none}body.camp #cap{left:auto;right:10px;bottom:10px;transform:none;width:min(380px,46%)}}
+.cm:not(.cur) text{display:none}
+.cm.cur .dia{animation:mpulse 1.1s ease-in-out infinite}
+.cm text{font-size:13px;font-weight:700;fill:#ffe08a;paint-order:stroke;stroke:rgba(5,8,18,.9);stroke-width:3.4;stroke-linejoin:round;dominant-baseline:central}
+.clab text{text-anchor:middle;fill:#fff;paint-order:stroke;stroke:rgba(5,8,18,.85);stroke-width:4;stroke-linejoin:round;dominant-baseline:central}
+.clab .n{font-family:var(--serif);font-size:20px;font-weight:700}
+.clab .s{font-size:12px;fill:#ffe9b0;stroke-width:3}
+#capSteps{display:none;align-items:center;gap:6px;margin-top:8px}
+#cap.camp #capSteps{display:flex}
+#cap.camp #capBar{display:none}
+#cDots{flex:1;min-width:0;display:flex;overflow-x:auto;scrollbar-width:none}
+#cDots::-webkit-scrollbar{display:none}
+.cd{flex:1 0 auto;min-width:42px;background:none;border:0;color:var(--muted);font:inherit;font-size:11px;padding:3px 2px;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;position:relative}
+.cd:before{content:"";position:absolute;top:8px;left:-50%;right:50%;height:2px;background:rgba(255,255,255,.14)}
+.cd:first-child:before{display:none}
+.cd.past:before,.cd.on:before{background:var(--era)}
+.cd i{position:relative;width:11px;height:11px;border-radius:50%;background:#1a2236;border:2px solid rgba(255,255,255,.35)}
+.cd.past i{background:var(--era);border-color:var(--era)}
+.cd.on i{background:#ffe08a;border-color:#fff;box-shadow:0 0 0 4px rgba(255,224,138,.22)}
+.cd.on span{color:#fff;font-weight:700}
+.campbtn{display:flex;align-items:center;gap:12px;width:100%;margin:0 0 10px;padding:11px 12px;border-radius:14px;border:1px solid rgba(255,224,138,.32);background:linear-gradient(135deg,rgba(255,224,138,.12),rgba(255,224,138,.03));color:#fff;font:inherit;text-align:left;cursor:pointer}
+.campbtn:hover{background:rgba(255,224,138,.16)}
+.campbtn .pi{flex:none;width:34px;height:34px;border-radius:50%;background:#ffe08a;color:#1a1405;display:grid;place-items:center}
+.campbtn .pi svg{width:16px;height:16px;margin-left:2px}
+.campbtn b{display:block;font-size:14px}
+.campbtn small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+#iCamp:not(:empty){margin:2px 0 6px}
+#sCamp h3{margin:4px 0 8px;font-size:13px;letter-spacing:.08em;color:var(--era)}
+#sCamp:not(:empty){margin:0 0 14px}
+.sr .k.camp{background:rgba(255,224,138,.18);color:#ffe08a}
+@media (max-height:500px) and (min-width:561px){#capSteps{margin-top:4px}.cd{font-size:10px}#cap.camp #capT{font-size:13.5px}}
 #sSync h3{margin:4px 0 8px;font-size:13px;letter-spacing:.08em;color:var(--era)}
 #sSync .sy{display:flex;gap:10px;padding:7px 0;border-top:1px solid rgba(255,255,255,.07);font-size:13px;line-height:1.6;color:#cdd4e4}
 #sSync .sy b{flex:0 0 4.6em;color:#fff;font-weight:700}
@@ -315,6 +365,7 @@ button{font-family:inherit;color:inherit;cursor:pointer}
       <path class="grat"></path>
       <g id="landG"></g>
       <g id="polG"></g>
+      <g id="campG"></g>
       <g id="borderG" class="borders hidden"></g>
       <g id="routeG"></g>
       <g id="markG"></g>
@@ -364,6 +415,7 @@ button{font-family:inherit;color:inherit;cursor:pointer}
     <div class="ttl"><i id="iSw"></i><h2 id="iName"></h2></div>
     <div class="sub" id="iSub"></div>
     <div id="iRuler"></div>
+    <div id="iCamp"></div>
     <dl class="kv" id="iKv"></dl>
     <p id="iNote"></p>
     <div id="iDetail"></div>
@@ -377,6 +429,7 @@ button{font-family:inherit;color:inherit;cursor:pointer}
     <h2 id="sT"></h2>
     <p id="sP"></p>
     <ul id="sEv"></ul>
+    <div id="sCamp"></div>
     <div id="sSync"></div>
     <div class="row">
       <button class="btn" id="sPrev">← 上一個時代</button>
@@ -397,10 +450,11 @@ button{font-family:inherit;color:inherit;cursor:pointer}
   <div id="about" class="panel hidden">
     <button class="x" data-close="about" aria-label="關閉">✕</button>
     <h2>關於這張時光地圖</h2>
-    <p>拖動下方時間軸，就能看到西元前500年到今天共18個時代，世界上各個國家與帝國的大致疆域。</p>
+    <p>拖動下方時間軸，就能看到西元前3000年到今天共24個時代，世界上各個國家與帝國的大致疆域。</p>
     <ul>
       <li><b>點地圖上的國家</b>：查看首都、當時的統治者、簡介、面積排名，以及它的範圍今天屬於哪些國家。</li>
-      <li><b>故事</b>：閱讀每個時代的重點與大事。</li>
+      <li><b>故事</b>：閱讀每個時代的重點與大事，以及「同一時期的世界」六大地區對照。</li>
+      <li><b>擴張過程</b>：亞歷山大東征、秦滅六國、羅馬、阿拉伯、蒙古與拿破崙，可一步一步看領土如何擴大、軍隊走哪條路、在哪裡打仗（從國家資訊卡、故事或搜尋開啟）。</li>
       <li><b>▶ 導覽</b>：按時間軸右邊的播放鍵，會以字幕＋語音朗讀依序介紹每個時代，提到的國家會在地圖上亮起來（右上喇叭可關閉聲音）。</li>
       <li><b>測驗</b>：「這塊領土屬於誰？」與「這是哪一年的地圖？」兩種題型。</li>
       <li><b>排行</b>：該年代版圖最大的國家。</li>
@@ -434,6 +488,12 @@ button{font-family:inherit;color:inherit;cursor:pointer}
     <div id="capWho" class="hidden"></div>
     <div id="capT"></div>
     <div id="capBar"><i></i></div>
+    <div id="capSteps">
+      <button class="ib" id="cPrev" aria-label="上一步"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div id="cDots"></div>
+      <button class="ib" id="cNext" aria-label="下一步"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button class="ib play" id="cPP" aria-label="播放"></button>
+    </div>
   </div>
 
   <div id="toast"></div>
@@ -2148,6 +2208,162 @@ const ROUTES = [
   [-1100, -300, '腓尼基航線', 'sea', [[35.2, 33.27], [33.6, 34.4], [29.0, 34.5], [25.0, 34.6], [20.0, 36.0], [15.3, 36.6], [11.5, 37.2], [10.32, 36.85], [5.0, 37.3], [0.0, 36.5], [-5.6, 36.0], [-6.29, 36.53]], '腓尼基人從推羅出發，沿地中海一路建立殖民地與貿易站，最遠越過直布羅陀海峽到達加地斯，把字母與商業傳遍地中海。']
 ];
 </script>
+<script>// 擴張過程：一步一步重現帝國如何形成
+// 每一步：y 年份（排序與標題用）、when 顯示的時間、t 標題、who 當時的領導者、
+//   add 這一步新取得的領土（與政權相同的區域語法）、path 行軍路線 [經度,緯度]、foe 路線屬於敵軍、
+//   at 標記地點 [經度,緯度,名稱]、drop 這一步失去的先前步驟、only 只保留這一步的領土、text 解說
+const CAMPAIGNS = [
+// ───────────────────────── 亞歷山大東征 ─────────────────────────
+{ id: 'alexander', name: '亞歷山大東征', span: '前336–前323年', label: '亞歷山大帝國', color: '#f4a259',
+  avatarId: 'alexander', avY: -323, leader: '亞歷山大大帝', base: -500,
+  links: [[-323, 'alexander'], [-500, 'achaemenid']],
+  intro: '接下來看亞歷山大大帝如何在短短十一年內，從希臘一路打到印度，滅亡波斯帝國。',
+  steps: [
+  { y: -336, when: '前336年', t: '少年國王即位', who: '亞歷山大三世（20歲）', add: 'GRC@20.5,39,26.7,41.8 MKD BGR@22.3,41.2,28,42.8 TUR@26,40,29.2,42.1', at: [[22.52, 40.76, '佩拉']],
+    text: '父親腓力二世遇刺身亡，20歲的亞歷山大繼承馬其頓王位。腓力已經統一馬其頓、征服色雷斯，並讓希臘城邦臣服，原本正準備遠征波斯。' },
+  { y: -335, when: '前335年', t: '平定希臘', who: '亞歷山大三世', add: 'GRC@19.3,36,24.6,39', path: [[22.52, 40.76], [23.3, 41.8], [21.2, 41.0], [22.4, 39.6], [23.32, 38.32]], at: [[23.32, 38.32, '底比斯']],
+    text: '他先北上擊敗色雷斯與伊利里亞部族，聽說底比斯趁機反叛，立刻急行軍南下，攻破並夷平底比斯城。其他希臘城邦從此不敢反抗。' },
+  { y: -334, when: '前334年', t: '渡海東征・格拉尼庫斯河', who: '亞歷山大三世', add: 'TUR@26,36.5,30.5,40.6', path: [[22.52, 40.76], [24.4, 40.9], [26.4, 40.2], [27.3, 40.2], [28.0, 38.48], [27.34, 37.94], [27.42, 37.04]], at: [[27.3, 40.2, '格拉尼庫斯河'], [27.34, 37.94, '以弗所']],
+    text: '他率領約三萬七千名步騎渡過赫勒斯滂海峽，在格拉尼庫斯河擊敗波斯總督的聯軍，接著拿下薩第斯、以弗所等城市，把愛奧尼亞的希臘人從波斯統治下解放出來。' },
+  { y: -333, when: '前333年', t: '伊蘇斯戰役', who: '亞歷山大三世', add: 'TUR@30.5,36,37,41.5', path: [[27.42, 37.04], [30.7, 36.9], [31.99, 39.65], [34.9, 36.92], [36.2, 36.83]], at: [[31.99, 39.65, '戈爾迪翁'], [36.2, 36.83, '伊蘇斯']],
+    text: '經過戈爾迪翁時，傳說他一劍斬斷了無人能解的「戈爾迪烏姆結」。在伊蘇斯，他正面擊潰波斯國王大流士三世親率的大軍，大流士倉皇逃走，母親與妻女都成了俘虜。' },
+  { y: -332, when: '前332–前331年', t: '推羅之圍・進入埃及', who: '亞歷山大三世', add: 'SYR@35.5,32.3,38.6,37 LBN ISR PSE JOR@34.9,29.2,36.7,32.7 CYP NCY EGY', path: [[36.2, 36.83], [35.9, 35.0], [35.2, 33.27], [34.45, 31.5], [32.3, 30.9], [31.25, 29.85], [29.92, 31.2], [25.54, 29.2]], at: [[35.2, 33.27, '推羅'], [29.92, 31.2, '亞歷山大城'], [25.54, 29.2, '錫瓦綠洲']],
+    text: '他沒有追擊大流士，而是先掃除波斯海軍的基地。島城推羅頑強抵抗，他花了七個月築堤攻城。埃及人把他當成解放者，祭司尊他為法老，他還在尼羅河口建立了亞歷山大城，後來成為地中海世界最大的城市之一。' },
+  { y: -331, when: '前331年', t: '高加米拉決戰', who: '亞歷山大三世', add: 'SYR@38.6,32.3,42.5,37.3 IRQ KWT TUR@37,36,44,38.3 IRN@47,29.5,50.5,33.5', path: [[29.92, 31.2], [34.45, 31.5], [35.2, 33.27], [38.2, 35.9], [41.5, 36.8], [43.4, 36.6], [44.42, 32.54], [48.25, 32.19]], at: [[43.4, 36.6, '高加米拉'], [44.42, 32.54, '巴比倫'], [48.25, 32.19, '蘇薩']],
+    text: '雙方在高加米拉決戰，波斯兵力遠多於馬其頓。亞歷山大看準敵陣出現的空隙，親率騎兵直衝大流士本陣，波斯大軍隨即崩潰。他接著進入巴比倫與蘇薩，接收了波斯帝國龐大的財庫。' },
+  { y: -330, when: '前330年', t: '波斯帝國滅亡', who: '亞歷山大三世', add: 'IRN TKM@54,36,61.5,38.5', path: [[48.25, 32.19], [51.9, 30.6], [52.89, 29.93], [52.5, 33.2], [48.51, 34.8], [51.4, 35.6], [54.3, 36.2]], at: [[52.89, 29.93, '波斯波利斯'], [54.3, 36.2, '大流士之死']],
+    text: '他攻破山隘「波斯門」，進入波斯波利斯，並焚毀了宏偉的王宮。逃亡中的大流士三世被自己的總督貝蘇斯殺害，亞歷山大以「萬王之王」自居，延續兩百多年的阿契美尼德帝國就此滅亡。' },
+  { y: -329, when: '前329–前327年', t: '中亞苦戰', who: '亞歷山大三世', add: 'AFG TKM@60,35,66.7,38.5 UZB@64.5,37,72,41 TJK@67,36.6,71.5,40.5', path: [[54.3, 36.2], [62.2, 34.35], [65.7, 31.6], [69.2, 34.5], [68.9, 35.8], [66.9, 36.76], [66.97, 39.65], [69.6, 40.28]], at: [[66.9, 36.76, '巴克特拉'], [66.97, 39.65, '撒馬爾罕'], [69.6, 40.28, '最遠的亞歷山大城']],
+    text: '接下來三年，他在今天的阿富汗與中亞苦戰，對抗貝蘇斯與粟特首領斯皮塔米尼斯的游擊戰。他最遠到達錫爾河畔，建立「最遠的亞歷山大城」，並娶了當地貴族之女羅克珊娜。' },
+  { y: -326, when: '前326年', t: '進軍印度', who: '亞歷山大三世', add: 'PAK@66,29.5,75.5,35 IND@73.5,29.8,76.5,32.9', path: [[66.9, 36.76], [69.2, 34.6], [71.1, 34.1], [72.83, 33.75], [73.6, 32.95], [75.1, 31.6]], at: [[72.83, 33.75, '塔克西拉'], [73.6, 32.95, '希達斯皮斯河'], [75.1, 31.6, '希發西斯河']],
+    text: '他越過興都庫什山進入印度，在希達斯皮斯河擊敗出動戰象的波魯斯王。但走到希發西斯河時，離家八年、疲憊不堪的士兵拒絕再前進，亞歷山大只好下令回師。' },
+  { y: -323, when: '前325–前323年', t: '回師與早逝', who: '亞歷山大三世', add: 'PAK@61.5,23.5,71.5,29.5', path: [[75.1, 31.6], [71.5, 30.2], [68.4, 25.4], [65.5, 25.4], [61.3, 25.6], [58.6, 27.3], [55.3, 28.5], [53.2, 30.2], [48.25, 32.19], [44.42, 32.54]], at: [[63, 26.2, '格德羅西亞沙漠'], [44.42, 32.54, '巴比倫']],
+    text: '他沿印度河南下出海，穿越格德羅西亞沙漠時，部隊因缺水損失慘重。回到蘇薩後，他舉行集體婚禮，鼓勵馬其頓將士與波斯人通婚。前323年6月，他在巴比倫高燒去世，年僅32歲，帝國隨即被部將瓜分。' }
+  ] },
+
+// ───────────────────────── 秦滅六國 ─────────────────────────
+{ id: 'qin', name: '秦滅六國', span: '前230–前221年', label: '秦', color: '#e9724c',
+  avatarId: 'qin', avY: -221, leader: '秦王嬴政', base: -323,
+  links: [[-323, 'qin'], [-200, 'han']],
+  intro: '接下來看秦國如何在短短十年內，依序消滅韓、趙、燕、魏、楚、齊六國，第一次統一中國。',
+  steps: [
+  { y: -247, when: '前247–前231年', t: '統一前的秦國', who: '秦王嬴政', add: 'CHN@102,26.5,112.6,38.5 CHN@110.5,38.5,112.6,39.5', at: [[108.7, 34.33, '咸陽']],
+    text: '13歲的嬴政即位為秦王。經過商鞅變法與一百多年的東進，秦國已占有關中、巴蜀、漢中與山西南部，國力遠超其他六國。他親政後重用李斯、尉繚，採取「遠交近攻」、逐一擊破的策略。' },
+  { y: -230, when: '前230年', t: '滅韓', who: '秦王嬴政', add: 'CHN@112.6,33.5,114.4,35.2', path: [[108.7, 34.33], [111.0, 34.6], [113.7, 34.4]], at: [[113.7, 34.4, '新鄭']],
+    text: '秦將內史騰攻破韓國都城新鄭，俘虜韓王安。韓國是六國中最弱的一國，也是第一個滅亡的。' },
+  { y: -228, when: '前229–前228年', t: '破趙', who: '秦王嬴政', add: 'CHN@112.6,35.2,115.5,39.5 CHN@115.5,35.2,116.5,39.3', path: [[108.7, 34.33], [112.5, 37.8], [114.49, 36.6]], at: [[114.49, 36.6, '邯鄲']],
+    text: '秦將王翦攻趙，久攻不下；秦國以反間計讓趙王處死名將李牧，前228年秦軍攻破邯鄲，俘虜趙王遷。趙公子嘉逃到北方的代地自立為王。' },
+  { y: -226, when: '前227–前226年', t: '荊軻刺秦・破燕', who: '秦王嬴政', add: 'CHN@115.5,39.3,120,42.5', path: [[114.49, 36.6], [115.5, 38.8], [116.4, 39.9]], at: [[108.7, 34.33, '荊軻刺秦'], [116.4, 39.9, '薊城']],
+    text: '燕太子丹派荊軻以獻地圖為名刺殺秦王，「圖窮匕見」卻功敗垂成。秦王大怒，命王翦伐燕，攻下燕都薊城，燕王喜逃往遼東。' },
+  { y: -225, when: '前225年', t: '水灌大梁・滅魏', who: '秦王嬴政', add: 'CHN@114.4,33.6,116.5,35.2', path: [[113.7, 34.4], [114.34, 34.8]], at: [[114.34, 34.8, '大梁']],
+    text: '秦將王賁包圍魏都大梁，引黃河水灌城，三個月後城牆崩壞，魏王假出城投降，魏國滅亡。' },
+  { y: -223, when: '前224–前223年', t: '六十萬大軍滅楚', who: '秦王嬴政', add: 'CHN@112.6,24,116.5,33.6 CHN@116.5,24,122.5,34.3 CHN@108.5,24,112.6,29.5', path: [[108.7, 34.33], [112.4, 32.0], [114.8, 32.6], [116.78, 32.57]], at: [[116.78, 32.57, '壽春']],
+    text: '第一次伐楚時，年輕將領李信率二十萬人慘敗。秦王親自向老將王翦道歉，交給他六十萬大軍。王翦築營堅守，等楚軍鬆懈東撤時一舉擊破，楚將項燕戰死，楚國滅亡。' },
+  { y: -222, when: '前222年', t: '掃平燕、代', who: '秦王嬴政', add: 'CHN@120,39,125,43.5 CHN@110.5,39.5,115.5,41.5', path: [[116.4, 39.9], [119.5, 40.5], [123.2, 41.3], [119.5, 40.5], [114.6, 39.8]], at: [[123.2, 41.3, '遼東'], [114.6, 39.8, '代']],
+    text: '王賁遠征遼東，俘虜燕王喜；回師途中又滅了代王嘉。燕、趙兩國的殘餘勢力至此全部消滅。' },
+  { y: -221, when: '前221年', t: '滅齊・天下一統', who: '秦始皇', add: 'CHN@116.5,34.3,122.8,38.4', path: [[116.4, 39.9], [117.0, 38.0], [118.3, 36.8]], at: [[118.3, 36.8, '臨淄']],
+    text: '王賁從燕地南下，直取齊都臨淄，齊王建不戰而降。秦王政統一天下，自稱「始皇帝」，廢除分封、設立郡縣，並統一文字、度量衡、貨幣與車軌。' }
+  ] },
+
+// ───────────────────────── 羅馬的擴張 ─────────────────────────
+{ id: 'rome', name: '羅馬的擴張', span: '前509–公元117年', label: '羅馬', color: '#d1495b',
+  avatarId: 'rome', avY: -100, leader: '羅馬元老院與人民', base: -323,
+  links: [[117, 'rome'], [-200, 'rome'], [-323, 'rome'], [-500, 'rome']],
+  intro: '接下來看羅馬如何從台伯河畔的一座小城，花了六百年成為環繞整個地中海的大帝國。',
+  steps: [
+  { y: -509, when: '前509年', t: '共和國誕生', who: '羅馬元老院與人民', add: 'ITA@12,41.5,13,42.3', at: [[12.48, 41.89, '羅馬']],
+    text: '羅馬人推翻了最後一位國王，建立共和國，由每年選出的兩位執政官與元老院治理。這時的羅馬只是台伯河畔的一個城邦，周圍強敵環伺。' },
+  { y: -264, when: '前5–前3世紀', t: '統一義大利半島', who: '羅馬元老院與人民', add: 'ITA@10,38.3,18.6,44.2 ITA@15.6,37.9,16.4,38.3', path: [[12.48, 41.89], [14.2, 41.3], [16.0, 41.0], [17.24, 40.47]], at: [[17.24, 40.47, '塔蘭托']],
+    text: '經過兩百多年的戰爭，羅馬先後征服拉丁人、伊特拉斯坎人與山地的薩莫奈人，又擊退渡海而來的伊庇魯斯王皮洛士，「皮洛士式勝利」一詞就是從這裡來的。到前264年，羅馬已控制義大利半島中部與南部。' },
+  { y: -241, when: '前264–前238年', t: '第一次布匿戰爭', who: '羅馬元老院與人民', add: 'ITA@12,36.4,15.7,38.35 ITA@8,38.8,9.9,41.3 FRA@8.5,41.3,9.6,43.1', at: [[12.3, 37.95, '埃加特斯群島']],
+    text: '羅馬與北非的海上強權迦太基為了西西里開戰。原本不擅海戰的羅馬臨時打造艦隊，最後在埃加特斯群島海戰獲勝。西西里成為羅馬第一個海外行省，不久又奪得薩丁尼亞與科西嘉。' },
+  { y: -202, when: '前218–前201年', t: '漢尼拔翻越阿爾卑斯山', who: '大西庇阿', add: 'ESP@-6.5,36,3.5,42.3 ITA@6.6,44.2,14,47.1', foe: true, path: [[-0.98, 37.6], [0.8, 40.7], [2.5, 42.5], [4.6, 43.9], [6.9, 45.2], [7.7, 45.07], [9.6, 45.0], [12.1, 43.2], [16.13, 41.3]], at: [[6.9, 45.2, '翻越阿爾卑斯'], [16.13, 41.3, '坎尼'], [9.5, 36.0, '扎馬']],
+    text: '迦太基名將漢尼拔從西班牙出發，帶著戰象翻越阿爾卑斯山，前216年在坎尼包圍並殲滅羅馬大軍。但羅馬堅持不降，大西庇阿反攻北非，前202年在扎馬擊敗漢尼拔。戰後羅馬取得西班牙東部與南部，也征服了波河平原。' },
+  { y: -146, when: '前146年', t: '迦太基與科林斯毀滅', who: '羅馬元老院與人民', add: 'TUN@8,34.5,11.3,37.6 GRC MKD ALB', at: [[10.32, 36.85, '迦太基'], [22.88, 37.91, '科林斯']],
+    text: '第三次布匿戰爭結束，羅馬把迦太基城夷為平地，設立阿非利加行省；同一年也攻陷並摧毀希臘名城科林斯，馬其頓與希臘從此落入羅馬手中。' },
+  { y: -63, when: '前133–前63年', t: '進軍東方', who: '龐培', add: 'TUR@26,36,33,41.3 TUR@33,36,36.5,42.2 SYR LBN ISR PSE CYP NCY LBY@19.5,30,25.2,33 FRA@0,42.3,7.8,45.2', at: [[27.18, 39.13, '帕加馬'], [36.16, 36.2, '安條克'], [35.23, 31.77, '耶路撒冷']],
+    text: '帕加馬國王臨終前把王國遺贈給羅馬，成為亞細亞行省；在西方，羅馬也取得高盧南部的海岸地帶。之後龐培擊敗本都國王米特里達梯六世，吞併塞琉古王國的殘部設立敘利亞行省，前63年又攻進耶路撒冷。' },
+  { y: -50, when: '前58–前50年', t: '凱撒征服高盧', who: '凱撒', add: 'FRA BEL LUX NLD@3.3,50.7,6.5,52 CHE DEU@6,47.5,8.3,51.5', path: [[6.14, 46.2], [4.04, 46.92], [3.5, 49.6], [2.5, 50.6], [6.5, 50.9], [4.5, 47.54]], at: [[4.5, 47.54, '阿萊西亞']],
+    text: '凱撒花了八年征服整個高盧，還兩度渡海進入不列顛。前52年，他在阿萊西亞包圍並擊敗高盧聯軍領袖維欽托利。手握大軍的凱撒四年後渡過盧比孔河，奪取了羅馬政權。' },
+  { y: 14, when: '前31–公元14年', t: '奧古斯都與羅馬和平', who: '奧古斯都', add: 'EGY ESP PRT TUN DZA@2.5,34.5,8.6,37.1 LBY@10,30,19.5,33.2 AUT@9.5,46.4,17.2,48.8 SVN HRV BIH SRB MNE HUN@16,45.7,19,48.2 DEU@7.5,47.3,13.5,48.7 BGR@22.3,43.3,28.6,44.2 JOR@34.9,29.2,36.7,32.7', at: [[20.75, 38.95, '亞克興'], [29.92, 31.2, '亞歷山大城']],
+    text: '屋大維在亞克興海戰擊敗安東尼與埃及女王克麗奧佩脫拉，隔年吞併埃及。他成為羅馬第一位皇帝「奧古斯都」，把邊界推進到萊茵河與多瑙河，開啟了長達兩百年的「羅馬和平」。' },
+  { y: 117, when: '43–117年', t: '最大疆域', who: '圖拉真', add: 'GBR@-5.8,50,1.8,55 MAR@-7,33,-1,36 DZA@-2,34.5,2.5,36.5 ROU@21,43.6,27,48 BGR SAU@34.5,27,38.5,30.5 ARM IRQ@38.5,30.5,48,37.4 TUR@36.5,36,44.8,42', at: [[-1.5, 52.5, '不列顛'], [23.3, 45.5, '達契亞'], [44.6, 33.1, '泰西封']],
+    text: '公元43年羅馬征服不列顛；圖拉真皇帝在106年征服達契亞（今羅馬尼亞）與阿拉伯的佩特拉，116年更攻下安息首都泰西封。羅馬帝國達到最大疆域，約五百萬平方公里。但隔年圖拉真去世，繼任的哈德良隨即放棄美索不達米亞。' }
+  ] },
+
+// ───────────────────────── 阿拉伯帝國 ─────────────────────────
+{ id: 'arab', name: '阿拉伯帝國的擴張', span: '632–751年', label: '哈里發國', color: '#2a9d8f',
+  avatarId: 'abbasid', avY: 700, leader: '哈里發', base: 600,
+  links: [[750, 'abbasid']],
+  intro: '接下來看伊斯蘭教興起後，阿拉伯人如何在一百二十年間，建立從大西洋延伸到中亞的大帝國。',
+  steps: [
+  { y: 632, when: '622–634年', t: '統一阿拉伯半島', who: '阿布·伯克爾（第一任哈里發）', add: 'SAU YEM OMN ARE QAT KWT', at: [[39.83, 21.42, '麥加'], [39.61, 24.47, '麥地那']],
+    text: '穆罕默德在622年從麥加遷往麥地那，伊斯蘭曆就以這一年為元年。632年他去世時，阿拉伯半島的部族大多已經歸順；第一任哈里發阿布·伯克爾平定了叛離的部族，隨即向北方的兩大帝國出兵。' },
+  { y: 636, when: '636–638年', t: '雅爾穆克與卡迪西亞', who: '歐瑪爾（第二任哈里發）', add: 'SYR LBN ISR PSE JOR IRQ', path: [[39.61, 24.47], [37.5, 28.5], [35.95, 32.7]], at: [[35.95, 32.7, '雅爾穆克河'], [44.4, 31.9, '卡迪西亞'], [35.23, 31.77, '耶路撒冷']],
+    text: '阿拉伯軍在雅爾穆克河大敗東羅馬軍隊，奪取敘利亞；同一時期又在卡迪西亞擊敗波斯薩珊王朝，攻下首都泰西封。耶路撒冷也在638年前後開城投降。' },
+  { y: 642, when: '640–642年', t: '取得埃及・納哈萬德', who: '歐瑪爾（第二任哈里發）', add: 'EGY LBY@19,29,25.2,33.2 IRN@44,29,53,38', path: [[34.45, 31.5], [32.3, 30.9], [31.25, 30.0], [29.92, 31.2]], at: [[29.92, 31.2, '亞歷山大港'], [48.4, 34.2, '納哈萬德']],
+    text: '將軍阿姆魯率軍進入埃及，取得亞歷山大港，東羅馬從此失去最富庶的糧倉。在東方，薩珊波斯的主力在納哈萬德之戰被殲滅，伊朗高原的門戶大開。' },
+  { y: 651, when: '651年', t: '波斯帝國滅亡', who: '奧斯曼（第三任哈里發）', add: 'IRN AFG@60.5,29,65.5,37.5 TKM ARM AZE', at: [[61.8, 37.6, '木鹿']],
+    text: '薩珊末代國王伊嗣俟三世一路逃亡，最後在木鹿附近被殺，延續四百多年的波斯帝國滅亡。不久後伊斯蘭世界爆發內戰，最後由倭馬亞家族的穆阿維葉勝出，定都大馬士革，開創倭馬亞王朝。' },
+  { y: 698, when: '670–709年', t: '橫掃北非', who: '阿卜杜勒-馬利克（倭馬亞哈里發）', add: 'LBY TUN DZA@-2,30,9,37.1 MAR@-9,29,-1,36', path: [[29.92, 31.2], [20.07, 32.1], [13.2, 32.9], [10.1, 35.68], [10.32, 36.85], [3.06, 36.75], [-5.8, 35.77]], at: [[10.1, 35.68, '凱魯萬'], [10.32, 36.85, '迦太基']],
+    text: '阿拉伯軍沿北非海岸一路西進，在突尼西亞建立凱魯萬城作為基地，698年攻下東羅馬的迦太基。經過與柏柏爾人的長期戰爭，大西洋沿岸的北非全部納入版圖。' },
+  { y: 711, when: '711–718年', t: '征服西班牙', who: '瓦利德一世（倭馬亞哈里發）', add: 'ESP@-9.5,36,3.5,43 PRT', path: [[-5.8, 35.77], [-5.35, 36.14], [-5.9, 36.6], [-4.78, 37.88], [-4.02, 39.86], [-0.88, 41.65]], at: [[-5.35, 36.14, '直布羅陀'], [-5.9, 36.6, '瓜達萊特河']],
+    text: '柏柏爾將領塔里克率軍渡過海峽，「直布羅陀」的名字就來自阿拉伯語的「塔里克之山」。他在瓜達萊特河擊敗西哥德國王羅德里克，幾年內征服了幾乎整個伊比利半島。' },
+  { y: 712, when: '705–715年', t: '信德與河中地區', who: '瓦利德一世（倭馬亞哈里發）', add: 'PAK@61,23.5,71.5,30 UZB TJK@67.3,37,70.5,40.5 AFG@65.5,29,70,37.5', path: [[61.8, 37.6], [64.42, 39.77], [66.97, 39.65]], at: [[64.42, 39.77, '布哈拉'], [66.97, 39.65, '撒馬爾罕'], [68.37, 25.4, '信德']],
+    text: '同一時期，年輕將領穆罕默德·本·卡西姆征服印度河下游的信德；屈底波則攻下布哈拉與撒馬爾罕。帝國向東延伸到中亞，與唐朝的勢力範圍相接。' },
+  { y: 751, when: '719–751年', t: '圖爾與怛羅斯', who: '薩法赫（阿拔斯首任哈里發）', add: 'FRA@0,42.3,4.5,44', path: [[-0.88, 41.65], [1.0, 43.2], [-0.57, 44.84], [0.69, 47.39]], at: [[0.69, 47.39, '圖爾'], [72.4, 42.5, '怛羅斯']],
+    text: '阿拉伯軍越過庇里牛斯山，732年在圖爾附近被法蘭克宮相查理·馬特爾擊退，在西歐的擴張到此為止。750年阿拔斯家族推翻倭馬亞王朝；751年阿拔斯軍在怛羅斯擊敗唐朝的高仙芝，帝國從大西洋一直延伸到中亞。' }
+  ] },
+
+// ───────────────────────── 蒙古帝國 ─────────────────────────
+{ id: 'mongol', name: '蒙古帝國的擴張', span: '1206–1279年', label: '蒙古帝國', color: '#a7c957',
+  avatarId: 'mongols', avY: 1250, leader: '成吉思汗', base: 1100,
+  links: [[1300, 'yuan'], [1300, 'goldenhorde'], [1300, 'chagatai'], [1300, 'ilkhanate']],
+  intro: '接下來看蒙古人如何在七十多年間，從草原上的部落聯盟，擴張成人類史上面積最大的陸上連續帝國。',
+  steps: [
+  { y: 1206, when: '1206年', t: '成吉思汗即位', who: '成吉思汗', add: 'MNG RUS@97,49.5,118,52.5', at: [[110.5, 48.5, '斡難河']],
+    text: '鐵木真統一蒙古高原各部，在斡難河畔被推舉為「成吉思汗」，建立大蒙古國。他把百姓編成千戶、百戶，全民皆兵，並頒布法典《大札撒》。' },
+  { y: 1215, when: '1209–1215年', t: '西夏稱臣・攻破中都', who: '成吉思汗', add: 'CHN@110,39.5,120,42.8 CHN@115,42.8,126,48', path: [[110.5, 48.5], [113.0, 44.0], [114.9, 40.8], [116.4, 39.9]], at: [[116.4, 39.9, '金中都']],
+    text: '他先迫使西夏稱臣，1211年起大舉進攻金朝，在野狐嶺擊潰金軍主力。1215年蒙古軍攻下金中都（今北京），金朝被迫把首都遷到開封。' },
+  { y: 1221, when: '1219–1221年', t: '西征花剌子模', who: '成吉思汗', add: 'CHN@73,36,96,49.5 KAZ@55,40,87,52 UZB TKM TJK KGZ AFG IRN@51,30,61.5,39', path: [[103.0, 47.0], [88.0, 46.5], [76.0, 43.5], [68.3, 42.85], [64.42, 39.77], [66.97, 39.65], [61.8, 37.6], [58.8, 36.2]], at: [[68.3, 42.85, '訛答剌'], [64.42, 39.77, '布哈拉'], [58.8, 36.2, '你沙不兒']],
+    text: '中亞強國花剌子模在訛答剌殺害蒙古商隊，又斬殺使者，成吉思汗親率大軍西征。布哈拉、撒馬爾罕相繼陷落，木鹿、你沙不兒等大城遭到屠城，花剌子模帝國崩潰。' },
+  { y: 1227, when: '1221–1227年', t: '遠襲羅斯・滅西夏', who: '成吉思汗', add: 'CHN@97,35.5,110,42', path: [[58.8, 36.2], [51.4, 35.7], [46.3, 38.1], [48.3, 42.06], [43.0, 45.0], [37.5, 47.4], [46.0, 48.5], [55.0, 51.0]], at: [[37.5, 47.4, '卡爾卡河'], [106.2, 38.5, '西夏・中興府']],
+    text: '大將哲別與速不台繞過裏海、翻越高加索，在卡爾卡河擊敗羅斯諸公的聯軍。成吉思汗回師後征討反覆的西夏，1227年西夏滅亡，他本人也在這年去世，由兒子窩闊台繼位。' },
+  { y: 1234, when: '1234年', t: '滅金', who: '窩闊台汗', add: 'CHN@105,32.5,125,41 CHN@120,41,135,53', path: [[116.4, 39.9], [114.3, 34.8], [114.38, 33.0]], at: [[114.3, 34.8, '開封'], [114.38, 33.0, '蔡州']],
+    text: '蒙古聯合南宋夾擊金朝，攻破開封後，金哀宗逃到蔡州。1234年蔡州城破，金哀宗自盡，北中國全部歸於蒙古。' },
+  { y: 1241, when: '1236–1242年', t: '長子西征', who: '拔都', add: 'RUS@27,44,62,61 UKR KAZ@46,41,62,52 MDA GEO ARM AZE', path: [[55.0, 51.0], [49.1, 55.0], [39.7, 54.6], [40.4, 56.13], [37.6, 55.75], [30.52, 50.45], [24.0, 50.4], [16.16, 51.2]], at: [[30.52, 50.45, '基輔'], [16.16, 51.2, '列格尼察'], [20.9, 47.95, '莫希']],
+    text: '拔都率領各家長子西征，攻破梁贊、弗拉基米爾，1240年攻陷基輔。1241年蒙古軍在波蘭的列格尼察與匈牙利的莫希接連大勝，前鋒直逼維也納；窩闊台的死訊傳來後才撤軍。羅斯諸國從此臣服於「金帳汗國」兩百多年。' },
+  { y: 1258, when: '1256–1260年', t: '巴格達陷落', who: '旭烈兀', add: 'IRN IRQ TUR@36,36,45,41.5 SYR@38,32,42.5,37.4', path: [[58.8, 36.2], [50.5, 36.4], [47.0, 34.3], [44.4, 33.3], [37.16, 36.2], [35.36, 32.55]], at: [[44.4, 33.3, '巴格達'], [35.36, 32.55, '阿音札魯特']],
+    text: '旭烈兀先攻滅波斯的阿薩辛派山堡，1258年攻陷巴格達，處死末代哈里發，延續五百年的阿拔斯王朝滅亡。1260年蒙古軍在阿音札魯特被埃及馬木路克擊敗，向西南的擴張止於巴勒斯坦。' },
+  { y: 1279, when: '1268–1279年', t: '滅南宋', who: '忽必烈', add: 'CHN@97,18,123,33.5 CHN@78,27,100,37 KOR PRK', path: [[116.4, 39.9], [114.3, 34.8], [112.14, 32.04], [114.3, 30.6], [118.8, 32.06], [120.16, 30.25], [116.0, 25.0], [113.1, 22.2]], at: [[112.14, 32.04, '襄陽'], [120.16, 30.25, '臨安'], [113.1, 22.2, '崖山']],
+    text: '忽必烈在1271年建立元朝，1273年攻破堅守五年多的襄陽，1276年進入南宋首都臨安。1279年崖山海戰，宋臣陸秀夫背著幼帝投海，南宋滅亡。這時蒙古帝國已分裂為元朝與三大汗國，但合計約兩千四百萬平方公里，是人類史上最大的陸上連續帝國。' }
+  ] },
+
+// ───────────────────────── 拿破崙戰爭 ─────────────────────────
+{ id: 'napoleon', name: '拿破崙的崛起與殞落', span: '1796–1815年', label: '法蘭西帝國及附庸', color: '#3a86ff',
+  avatarId: 'france', avY: 1805, leader: '拿破崙一世', base: 1700,
+  links: [[1815, 'france']],
+  intro: '接下來看拿破崙如何從一名年輕將軍，在十幾年間稱霸歐洲，又如何一步步走向滑鐵盧。',
+  steps: [
+  { y: 1796, when: '1796–1797年', t: '義大利戰役', who: '拿破崙·波拿巴', add: 'FRA BEL LUX ITA@6.6,43.7,13,46.6', path: [[7.27, 43.7], [8.2, 44.4], [9.5, 45.31], [11.27, 45.36], [10.81, 45.57]], at: [[9.5, 45.31, '洛迪'], [11.27, 45.36, '阿爾科萊']],
+    text: '法國大革命後，歐洲各國君主組成反法同盟。26歲的拿破崙出任義大利方面軍司令，在洛迪、阿爾科萊、里沃利連戰皆捷，迫使奧地利求和，並在北義大利建立受法國控制的共和國。' },
+  { y: 1798, when: '1798–1799年', t: '遠征埃及', who: '拿破崙·波拿巴', add: 'EGY@29,26,34,31.6', path: [[5.93, 43.12], [9.0, 39.5], [14.5, 35.9], [22.0, 33.5], [29.92, 31.2], [31.13, 29.98], [32.3, 30.9], [34.45, 31.5], [35.07, 32.92]], at: [[31.13, 29.98, '金字塔戰役'], [30.07, 31.32, '尼羅河口海戰'], [35.07, 32.92, '阿卡']],
+    text: '他遠征埃及，在金字塔戰役擊敗馬木路克騎兵，隨軍人員還發現了羅塞塔石碑。但法國艦隊在尼羅河口被英國的納爾遜殲滅，進攻敘利亞也在阿卡受挫，拿破崙最後拋下軍隊潛回法國。' },
+  { y: 1804, when: '1799–1804年', t: '第一執政到皇帝', who: '第一執政拿破崙', drop: [1], add: 'NLD CHE DEU@5.8,49,8.3,51.8', at: [[2.35, 48.86, '巴黎'], [8.62, 44.9, '馬倫哥']],
+    text: '他發動霧月政變成為第一執政，又在馬倫哥擊敗奧地利。他頒布影響深遠的《拿破崙法典》，1804年在巴黎聖母院加冕為法蘭西皇帝。留在埃及的法軍則在1801年向英軍投降。' },
+  { y: 1805, when: '1805–1806年', t: '奧斯特里茨', who: '拿破崙一世', add: 'DEU@6,47.3,15,51.5 ITA', path: [[2.35, 48.86], [6.0, 48.7], [8.4, 49.0], [10.0, 48.4], [16.37, 48.21], [16.76, 49.13]], at: [[-6.05, 36.2, '特拉法加'], [10.0, 48.4, '烏爾姆'], [16.76, 49.13, '奧斯特里茨']],
+    text: '英國的納爾遜在特拉法加海戰摧毀法西聯合艦隊，法國從此無法渡海進攻英國。但在陸上，拿破崙先在烏爾姆包圍奧軍，再於奧斯特里茨大敗俄奧聯軍。隔年他解散神聖羅馬帝國，組成受法國控制的萊茵邦聯。' },
+  { y: 1807, when: '1806–1807年', t: '耶拿與提爾西特', who: '拿破崙一世', add: 'DEU POL@15,49.5,23.8,54.5', path: [[11.0, 50.0], [11.59, 50.93], [13.4, 52.52], [20.5, 54.4], [21.0, 54.45], [21.88, 55.08]], at: [[11.59, 50.93, '耶拿'], [13.4, 52.52, '柏林'], [21.88, 55.08, '提爾西特']],
+    text: '他在耶拿擊潰普魯士，進入柏林；1807年在弗里德蘭擊敗俄軍後，與沙皇亞歷山大一世在提爾西特簽約。普魯士被割走一半領土，法國成為歐陸霸主，並下令封鎖與英國的貿易。' },
+  { y: 1810, when: '1808–1810年', t: '帝國的頂峰', who: '拿破崙一世', add: 'ESP SVN HRV@13.3,42.4,19.5,46.6', path: [[-1.8, 43.3], [-3.7, 40.42]], at: [[-3.7, 40.42, '馬德里'], [16.4, 48.25, '瓦格拉姆']],
+    text: '他把西班牙王位交給哥哥約瑟夫，卻引發西班牙人的全民抵抗，「游擊戰」這個詞就是從這場戰爭來的。他再次擊敗奧地利後，迎娶奧地利公主瑪麗·路易絲，法蘭西帝國及其附庸國達到極盛。' },
+  { y: 1812, when: '1812年', t: '遠征俄國', who: '拿破崙一世', path: [[23.9, 54.9], [25.28, 54.69], [30.2, 55.19], [32.05, 54.78], [35.82, 55.52], [37.62, 55.75], [35.0, 55.3], [32.05, 54.78], [28.6, 54.3], [25.28, 54.69]], at: [[35.82, 55.52, '博羅季諾'], [37.62, 55.75, '莫斯科'], [28.6, 54.3, '別列津納河']],
+    text: '他率領約六十萬大軍入侵俄國，在博羅季諾血戰後進入莫斯科，城市卻被俄國人放火焚毀。冬季撤退時，飢餓、嚴寒與哥薩克的追擊讓大軍幾乎全軍覆沒，只有數萬人逃回。' },
+  { y: 1815, when: '1813–1815年', t: '萊比錫與滑鐵盧', who: '拿破崙一世', only: true, add: 'FRA', at: [[12.37, 51.34, '萊比錫'], [10.3, 42.78, '厄爾巴島'], [4.4, 50.68, '滑鐵盧']],
+    text: '1813年各國聯軍在萊比錫「民族會戰」擊敗拿破崙，次年攻入巴黎，他被流放到厄爾巴島。1815年他逃回法國重掌政權，但在滑鐵盧被英國與普魯士聯軍擊敗，最後被流放到大西洋上的聖赫勒拿島，1821年死於島上。' }
+  ] }
+];
+</script>
 <script>(function () {
 'use strict';
 
@@ -2487,20 +2703,8 @@ function clipToBox(feat, box) {
 
 /* ================= 建立某年代的政權幾何 ================= */
 function parsePolity(a) { return { id: a[0], n: a[1], r: a[2] || '', cap: a[3] || '', ruler: a[4] || '', note: a[5] || '', s: a[6] || '', region: a[7] === 'region' }; }
-function buildSnapshot(idx) {
-  const snap = SNAPS[idx];
-  if (snap._built) return snap._built;
-  let pols;
-  if (snap.modern) {
-    pols = FEATS.map((f) => ({
-      id: 'm_' + (f._code || norm(f._name)), n: f._zh, r: '', cap: f._code ? COUNTRY[f._code].cap : '', ruler: '', note: '', s: '', _feat: f._i, modern: true
-    }));
-  } else pols = snap.p.map(parsePolity);
-  if (snap.autoRest) {   // 沒列出的國家自動以現代國名呈現
-    const used = new Set();
-    pols.forEach((p) => p.r.split(/\s+/).forEach((tok) => { const fi = codeIdx.get(tok.split('@')[0]); if (fi != null && !tok.includes('@')) used.add(fi); }));
-    FEATS.forEach((f) => { if (!used.has(f._i) && !pols.some((p) => p.r.split(/\s+/).some((t) => t.split('@')[0] === f._code))) pols.push({ id: 'm_' + (f._code || norm(f._name)), n: f._zh, r: '', cap: f._code ? COUNTRY[f._code].cap : '', ruler: '', note: '', s: '', _feat: f._i, modern: true }); });
-  }
+/* 依區域語法把政權切出地圖碎片（同一國家內，範圍小的優先） */
+function assignFrags(pols) {
   const perFeat = new Map(); let order = 0;
   pols.forEach((p, pi) => {
     p.frags = []; p.area = 0; p.featArea = new Map();
@@ -2535,6 +2739,24 @@ function buildSnapshot(idx) {
       pieces.forEach((pc) => { if (pc[2] - pc[0] > 1e-6 && pc[3] - pc[1] > 1e-6) addPiece(pols[it.pi], f, pc); });
     });
   });
+}
+// 單一區域字串 → 碎片（擴張過程用）
+function fragsOf(r) { const p = { id: '_c', n: '', r, region: false }; assignFrags([p]); p.anchor = p.frags.length ? anchorOf(p) : null; return p; }
+function buildSnapshot(idx) {
+  const snap = SNAPS[idx];
+  if (snap._built) return snap._built;
+  let pols;
+  if (snap.modern) {
+    pols = FEATS.map((f) => ({
+      id: 'm_' + (f._code || norm(f._name)), n: f._zh, r: '', cap: f._code ? COUNTRY[f._code].cap : '', ruler: '', note: '', s: '', _feat: f._i, modern: true
+    }));
+  } else pols = snap.p.map(parsePolity);
+  if (snap.autoRest) {   // 沒列出的國家自動以現代國名呈現
+    const used = new Set();
+    pols.forEach((p) => p.r.split(/\s+/).forEach((tok) => { const fi = codeIdx.get(tok.split('@')[0]); if (fi != null && !tok.includes('@')) used.add(fi); }));
+    FEATS.forEach((f) => { if (!used.has(f._i) && !pols.some((p) => p.r.split(/\s+/).some((t) => t.split('@')[0] === f._code))) pols.push({ id: 'm_' + (f._code || norm(f._name)), n: f._zh, r: '', cap: f._code ? COUNTRY[f._code].cap : '', ruler: '', note: '', s: '', _feat: f._i, modern: true }); });
+  }
+  assignFrags(pols);
   pols = pols.filter((p) => p.frags.length);
   pols.sort((a, b) => (a.region - b.region) || (b.area - a.area));
   let rk = 0;
@@ -2676,6 +2898,7 @@ function refreshPaths() {
   polG.selectAll('g.layer g.pol path').attr('d', (d) => fragPath(d.fr));
   drawLabels();
   drawOverlays();
+  if (CAMP.c && CAMP.i >= 0) drawCamp(CAMP.i, false);
 }
 /* ---- 圖層：城市、事件、貿易路線 ---- */
 const routeG = d3.select('#routeG'), markG = d3.select('#markG');
@@ -2720,6 +2943,7 @@ function drawOverlays() {
 function scaleMarkers() {
   const k = curT.k;
   markG.selectAll('g.mk').attr('transform', (d) => 'translate(' + d.x + ',' + d.y + ') scale(' + (1 / k) + ')');
+  campG.selectAll('g.cmk').attr('transform', (d) => d.x == null ? null : 'translate(' + d.x + ',' + d.y + ') scale(' + (1 / k) + ')' + (d.rot != null ? ' rotate(' + d.rot + ')' : ''));
 }
 function pulseMarks(text) {
   markG.selectAll('g.mk').classed('pulse', (d) => !!text && text.includes(d.kind === 'event' ? eventCore(d.n) : d.n));
@@ -2824,7 +3048,11 @@ function layoutLabels() {
 function viewRect() {
   const mob = isMobile();
   let x0 = 0, y0 = mob ? $('#top').getBoundingClientRect().bottom + 6 : Math.min(120, $('#yearBox').getBoundingClientRect().bottom + 8), x1 = W, y1 = $('#tl').getBoundingClientRect().top - 8;
-  if (!$('#cap').classList.contains('hidden')) y1 = Math.min(y1, $('#cap').getBoundingClientRect().top - 6);
+  if (!$('#cap').classList.contains('hidden')) {
+    const r = $('#cap').getBoundingClientRect();
+    if (r.left > W * 0.35 && r.height > (y1 - y0) * 0.45) x1 = Math.min(x1, r.left - 10);   // 橫向：字幕卡在右側
+    else y1 = Math.min(y1, r.top - 6);
+  }
   PANELS.forEach((n) => {
     if (!isOpen(n)) return;
     const r = $('#' + n).getBoundingClientRect();
@@ -2869,6 +3097,14 @@ function flyToPol(p, dur) {
 }
 
 /* ================= 介面：年代切換 ================= */
+function setHeader(sn) {
+  const era = eraOf(sn.y);
+  $('#yearPre').textContent = sn.y < 0 ? '西元前' : (sn.modern ? '' : '西元');
+  $('#yearNum').textContent = sn.modern ? '今日' : Math.abs(sn.y);
+  $('#yearSuf').textContent = sn.modern ? '' : '年';
+  $('#eraName').textContent = era.n; $('#eraRange').textContent = era.range;
+  $('#snapTitle').textContent = sn.t;
+}
 function setSnapshot(idx, opts) {
   opts = opts || {};
   idx = clamp(idx, 0, SNAPS.length - 1);
@@ -2877,13 +3113,7 @@ function setSnapshot(idx, opts) {
   const sn = SNAPS[idx];
   const era = eraOf(sn.y);
   document.documentElement.style.setProperty('--era', era.c);
-  if (!(S.quiz && S.quiz.type === 'year' && !S.quiz.done)) {
-    $('#yearPre').textContent = sn.y < 0 ? '西元前' : (sn.modern ? '' : '西元');
-    $('#yearNum').textContent = sn.modern ? '今日' : Math.abs(sn.y);
-    $('#yearSuf').textContent = sn.modern ? '' : '年';
-    $('#eraName').textContent = era.n; $('#eraRange').textContent = era.range;
-    $('#snapTitle').textContent = sn.t;
-  }
+  if (!(S.quiz && S.quiz.type === 'year' && !S.quiz.done)) setHeader(sn);
   updateTimeline();
   drawPolities(changed && !opts.instant);
   if (S.sel && !S.quiz) {
@@ -2894,6 +3124,7 @@ function setSnapshot(idx, opts) {
   if (isOpen('story')) renderStory();
   if (isOpen('rank')) renderRank();
   if (opts.fly) svg.transition().duration(900).call(zoom.transform, initialTransform());
+  if (opts.keepHash) return;
   try { history.replaceState(null, '', '#y' + sn.y); } catch (e) { /* 忽略 */ }
   store('hm_year', String(sn.y));
 }
@@ -2951,6 +3182,7 @@ function updateTimeline() {
   $('#tPrev').disabled = S.idx === 0; $('#tNext').disabled = S.idx === n - 1;
 }
 function userSet(i) {
+  if (CAMP.c) campClose(false);
   if (S.quiz && !S.quiz.done) closeQuiz();
   setSnapshot(i);
 }
@@ -3065,7 +3297,7 @@ function avatarStyle(p, y) {
 
 function avatarSVG(p, size) {
   if (!rulerName(p.ruler)) return '';
-  const y = SNAPS[S.idx].y;
+  const y = p._y != null ? p._y : SNAPS[S.idx].y;
   const { st, female, skin, east } = avatarStyle(p, y);
   const uid = 'av' + Math.random().toString(36).slice(2, 8);
   const c = d3.color(p.color), bgL = c.brighter(0.5).formatHex(), bgD = c.darker(1.4).formatHex();
@@ -3232,6 +3464,7 @@ function showInfo(p) {
   SNAPS.forEach((s, i) => { if (!s.modern && s.p.some((a) => a[0] === p.id)) others.push(i); });
   $('#iOther').innerHTML = others.length > 1 ? '<div class="lbl">在其他年代的地圖中</div><div class="chips">' +
     others.map((i) => '<button class="chip' + (i === S.idx ? ' cur' : '') + '" data-goto="' + i + '">' + yearShort(SNAPS[i].y) + '</button>').join('') + '</div>' : '';
+  $('#iCamp').innerHTML = p.modern ? '' : campBtns(campsAt(sn.y, p.id));
   openPanel('info');
   $('#info').scrollTop = 0;
 }
@@ -3252,12 +3485,17 @@ function renderRank() {
 }
 
 /* ---- 故事 ---- */
+function campBtns(cs) {
+  return cs.map((c) => '<button class="campbtn" data-camp="' + esc(c.id) + '"><span class="pi">' + PLAY_SVG + '</span><span><b>看擴張過程：' + esc(c.name) + '</b><small>' + esc(c.span) + '・' + c.steps.length + ' 個步驟，含路線與戰役</small></span></button>').join('');
+}
 function renderStory() {
   const sn = SNAPS[S.idx], era = eraOf(sn.y);
   $('#sK').textContent = (sn.modern ? '今日' : yearText(sn.y)) + '　·　' + era.n;
   $('#sT').textContent = sn.t;
   $('#sP').textContent = sn.storyFull || sn.story;
   $('#sEv').innerHTML = sn.ev.map((e) => '<li>' + esc(e) + '</li>').join('');
+  const cs = campsAt(sn.y);
+  $('#sCamp').innerHTML = cs.length ? '<h3>擴張過程</h3>' + campBtns(cs) : '';
   const sy = syncOf(sn);
   $('#sSync').innerHTML = sy ? '<h3>同一時期的世界</h3>' + sy.map(([r, t]) => '<div class="sy"><b>' + esc(r) + '</b><span>' + esc(t) + '</span></div>').join('') : '';
   $('#sPrev').disabled = S.idx === 0;
@@ -3329,6 +3567,7 @@ function speakText(t) {
 }
 function splitSentences(t) { return (t.match(/[^。！？；]+[。！？；]?/g) || [t]).map((x) => x.trim()).filter(Boolean); }
 function startPlay() {
+  if (CAMP.c) campClose(false);
   closeQuiz();
   if (S.sel) closePanel('info');
   closePanel('story');
@@ -3375,6 +3614,10 @@ function speakNext() {
   if (!S.playing) return;
   const tok = S.tok;
   if (S.si >= S.sents.length) {
+    if (S.mode === 'camp') {
+      S.timer = setTimeout(() => { if (tok !== S.tok || !CAMP.c) return; campPause(); toast('播放完畢，點下方的年份可以回顧每一步'); }, 1200);
+      return;
+    }
     S.timer = setTimeout(() => {
       if (!S.playing || tok !== S.tok) return;
       if (S.idx >= SNAPS.length - 1) { stopPlay(); toast('導覽結束'); return; }
@@ -3387,7 +3630,7 @@ function speakNext() {
   const text = S.sents[S.si];
   $('#capT').textContent = text;
   $('#capBar i').style.width = ((S.si + 1) / S.sents.length * 100) + '%';
-  spotlight(S.si === 0 ? null : text);
+  if (S.mode === 'camp') { const st = S.stepOf[S.si]; if (st !== CAMP.i) campShow(st); } else spotlight(S.si === 0 ? null : text);
   let done = false;
   const shownAt = Date.now();
   const readMs = Math.max(3000, [...text].length * 215) / TTS.rate;
@@ -3423,6 +3666,7 @@ function speakNext() {
   } else S.timer = setTimeout(next, readMs);
 }
 function stopPlay() {
+  if (CAMP.c) { campClose(false); return; }
   if (!S.playing) return;
   S.playing = false; S.tok = (S.tok || 0) + 1;
   clearTimeout(S.timer);
@@ -3439,10 +3683,224 @@ function toggleVoice() {
   if (S.playing) { S.tok++; clearTimeout(S.timer); speakNext(); }
 }
 function setPlayIcon() {
-  $('#tPlay').innerHTML = S.playing
+  $('#tPlay').innerHTML = S.playing && !CAMP.c
     ? '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>'
     : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>';
   $('#tPlay').setAttribute('aria-label', S.playing ? '暫停' : '播放');
+}
+
+/* ---- 擴張過程：一步一步重現帝國的形成 ---- */
+const campG = d3.select('#campG');
+const CAMP = { c: null, i: -1, back: null, anim: null };
+const PLAY_SVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>';
+const PAUSE_SVG = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+function campsAt(y, id) { return typeof CAMPAIGNS === 'undefined' ? [] : CAMPAIGNS.filter((c) => c.links.some(([ly, lid]) => ly === y && (id == null || lid === id))); }
+// 第 i 步的累積疆域與新增疆域（需要時才計算並快取）
+function campStep(c, i) {
+  c._b = c._b || [];
+  if (c._b[i]) return c._b[i];
+  let cur = new Set();
+  for (let j = 0; j <= i; j++) {
+    const st = c.steps[j];
+    if (st.only) cur = new Set();
+    (st.drop || []).forEach((d) => cur.delete(d));
+    if (st.add) cur.add(j);
+  }
+  const toks = [...cur].sort((a, b) => a - b).map((j) => c.steps[j].add).join(' ');
+  c._b[i] = { cum: toks ? fragsOf(toks) : null, neu: c.steps[i].add ? fragsOf(c.steps[i].add) : null };
+  return c._b[i];
+}
+function campStart(id, step) {
+  const c = typeof CAMPAIGNS !== 'undefined' && CAMPAIGNS.find((x) => x.id === id);
+  if (!c) return;
+  if (CAMP.c) campReset(); else { if (S.playing) stopPlay(); CAMP.back = S.idx; }
+  closeQuiz();
+  PANELS.forEach((n) => closePanel(n));
+  S.sel = null; S.spot = null; pulseMarks(null);
+  const bi = SNAPS.findIndex((s) => s.y === c.base);
+  if (bi >= 0 && bi !== S.idx) setSnapshot(bi, { instant: true, keepHash: true });
+  CAMP.c = c; CAMP.i = -1; S.mode = 'camp';
+  document.body.classList.add('camp');
+  applyHighlight(); scheduleLabels();
+  campG.append('g').attr('class', 'cterr');
+  campG.append('g').attr('class', 'croute');
+  campG.append('g').attr('class', 'cmarks');
+  S.sents = []; S.stepOf = [];
+  c.steps.forEach((st, i) => {
+    const ss = [st.when + '，' + st.t + '。'].concat(splitSentences(st.text));
+    if (i === 0 && c.intro) ss.unshift(c.intro);
+    ss.forEach((t) => { S.sents.push(t); S.stepOf.push(i); });
+  });
+  $('#cDots').innerHTML = c.steps.map((st, i) => '<button class="cd" data-s="' + i + '" aria-label="' + esc(st.when + ' ' + st.t) + '"><i></i><span>' + esc(yearShort(st.y)) + '</span></button>').join('');
+  $('#cap').classList.add('camp'); $('#cap').classList.remove('hidden');
+  $('#toast').classList.remove('show');
+  campPlay(step || 0);
+}
+function campPlay(step) {
+  if (TTS.ok) { try { speechSynthesis.cancel(); } catch (e) { /* 忽略 */ } }
+  clearTimeout(S.timer);
+  S.si = Math.max(0, S.stepOf.indexOf(step));
+  if (step === 0) S.si = 0;
+  S.playing = true; S.tok = (S.tok || 0) + 1;
+  setVoiceIcon(); setPlayIcon(); setCampPP();
+  speakNext();
+}
+function campPause(silent) {
+  S.playing = false; S.tok = (S.tok || 0) + 1; clearTimeout(S.timer);
+  if (TTS.ok) { try { speechSynthesis.cancel(); } catch (e) { /* 忽略 */ } }
+  setPlayIcon(); setCampPP();
+  if (!silent && CAMP.c && CAMP.i >= 0) $('#capT').textContent = CAMP.c.steps[CAMP.i].text;
+}
+function campGo(i) {
+  if (!CAMP.c) return;
+  i = clamp(i, 0, CAMP.c.steps.length - 1);
+  if (S.playing) { campPlay(i); return; }
+  campShow(i);
+  $('#capT').textContent = CAMP.c.steps[i].text;
+  $('#capBar i').style.width = ((S.stepOf.lastIndexOf(i) + 1) / S.sents.length * 100) + '%';
+}
+function setCampPP() {
+  const b = $('#cPP'); if (!b) return;
+  b.innerHTML = S.playing && CAMP.c ? PAUSE_SVG : PLAY_SVG;
+  b.setAttribute('aria-label', S.playing ? '暫停' : '播放');
+}
+function campReset() {
+  if (CAMP.anim) { CAMP.anim.stop(); CAMP.anim = null; }
+  campG.selectAll('*').interrupt();
+  campG.selectAll('*').remove();
+  if (CAMP.c) CAMP.c = null;
+  CAMP.i = -1;
+}
+// 關閉擴張過程；restore 為 true 時回到開啟前的年代
+function campClose(restore) {
+  if (!CAMP.c) return;
+  campPause(true);
+  campReset();
+  S.mode = null;
+  document.body.classList.remove('camp');
+  $('#cap').classList.add('hidden'); $('#cap').classList.remove('camp');
+  const back = CAMP.back; CAMP.back = null;
+  if (restore && back != null) setSnapshot(back, { instant: true, fly: true });
+  else { setHeader(SNAPS[S.idx]); if (restore) svg.transition().duration(900).call(zoom.transform, initialTransform()); }
+  applyHighlight(); scheduleLabels(); setPlayIcon();
+}
+function campShow(i) {
+  const c = CAMP.c, st = c.steps[i];
+  const changed = i !== CAMP.i;
+  CAMP.i = i;
+  const b = campStep(c, i);
+  $('#yearPre').textContent = st.y < 0 ? '西元前' : '西元';
+  $('#yearNum').textContent = Math.abs(st.y);
+  $('#yearSuf').textContent = '年';
+  $('#snapTitle').textContent = c.name + '・' + st.t;
+  $('#capK').textContent = c.name + '　' + (i + 1) + '/' + c.steps.length + '　' + st.when;
+  const lead = { id: c.avatarId, ruler: st.who || c.leader, color: c.color, _y: c.avY };
+  $('#capWho').innerHTML = (avatarSVG(lead, 46) || badgeSVG(lead, 40)) + '<div><b>' + esc(st.who || c.leader) + '</b><span>' + esc(c.label + (b.cum ? '・約 ' + fmtAreaShort(b.cum.area) : '')) + '</span></div>';
+  $('#capWho').classList.remove('hidden');
+  document.querySelectorAll('#cDots .cd').forEach((d, j) => { d.classList.toggle('on', j === i); d.classList.toggle('past', j < i); });
+  const cur = document.querySelector('#cDots .cd.on'); if (cur && cur.scrollIntoView) cur.scrollIntoView({ block: 'nearest', inline: 'center' });
+  drawCamp(i, changed);
+  if (changed) campFly(i);
+}
+// 依地理距離截取路線的前 t 比例
+function lineUpTo(pts, t) {
+  if (t >= 1 || pts.length < 2) return pts;
+  const seg = []; let tot = 0;
+  for (let j = 1; j < pts.length; j++) { const d = d3.geoDistance(pts[j - 1], pts[j]); seg.push(d); tot += d; }
+  let rem = tot * t; const out = [pts[0]];
+  for (let j = 0; j < seg.length; j++) {
+    if (rem >= seg[j]) { out.push(pts[j + 1]); rem -= seg[j]; continue; }
+    out.push(d3.geoInterpolate(pts[j], pts[j + 1])(seg[j] ? rem / seg[j] : 0));
+    break;
+  }
+  return out.length > 1 ? out : [pts[0], pts[0]];
+}
+function arrowAt(line) {
+  const n = line.length; if (n < 2) return null;
+  const a = projection(line[n - 1]); let b = null;
+  for (let j = n - 2; j >= 0 && !b; j--) { const q = projection(line[j]); if (Math.hypot(a[0] - q[0], a[1] - q[1]) > 0.5) b = q; }
+  if (!b) b = projection(d3.geoInterpolate(line[n - 2], line[n - 1])(0.9));
+  return { x: a[0], y: a[1], rot: Math.atan2(a[1] - b[1], a[0] - b[0]) * 180 / Math.PI };
+}
+function drawCamp(i, animate) {
+  const c = CAMP.c; if (!c) return;
+  const b = campStep(c, i), st = c.steps[i];
+  const terr = campG.select('g.cterr');
+  // 疆域：累積範圍
+  terr.selectAll('g.cum').classed('cum', false).classed('old', true).interrupt()
+    .transition().duration(animate ? 450 : 0).style('opacity', 0).remove();
+  terr.selectAll('g.neu').remove();
+  if (b.cum) {
+    const g = terr.append('g').attr('class', 'cum').style('opacity', animate ? 0 : 1);
+    g.selectAll('path').data(b.cum.frags).join('path').attr('d', fragPath).attr('fill', c.color).attr('stroke', d3.color(c.color).brighter(0.6).formatHex());
+    if (animate) g.transition().duration(600).style('opacity', 1);
+  }
+  // 這一步新增的地區：發光閃爍後融入
+  if (b.neu && animate) {
+    const g = terr.append('g').attr('class', 'neu');
+    g.selectAll('path').data(b.neu.frags).join('path').attr('d', fragPath).attr('fill', d3.color(c.color).brighter(1.1).formatHex());
+    g.transition().delay(2600).duration(800).style('opacity', 0).remove();
+  }
+  // 行軍路線
+  const routes = c.steps.map((s, j) => ({ j, s })).filter((o) => o.j <= i && o.s.path && o.s.path.length > 1);
+  const rg = campG.select('g.croute').selectAll('path.cp').data(routes, (o) => o.j).join('path')
+    .attr('class', (o) => 'cp' + (o.j === i ? ' cur' : '') + (o.s.foe ? ' foe' : ''));
+  rg.filter((o) => o.j !== i).attr('d', (o) => path({ type: 'LineString', coordinates: o.s.path }));
+  if (CAMP.anim) { CAMP.anim.stop(); CAMP.anim = null; }
+  const curR = rg.filter((o) => o.j === i);
+  const arrow = st.path && st.path.length > 1 ? [{ key: 'arrow', foe: !!st.foe }] : [];
+  // 標記：目前這一步的地點顯示名稱，先前的地點縮成小點
+  const marks = [];
+  c.steps.forEach((s, j) => { if (j <= i) (s.at || []).forEach((a) => { const p = projection([a[0], a[1]]); marks.push({ key: j + '|' + a[2], x: p[0], y: p[1], n: a[2], cur: j === i }); }); });
+  const lab = b.cum && b.cum.anchor ? [{ key: 'lab', ...(() => { polMetrics(b.cum); return { x: b.cum.ax, y: b.cum.ay }; })(), n: c.label, sub: '約 ' + fmtAreaShort(b.cum.area) }] : [];
+  const mg = campG.select('g.cmarks');
+  const mk = mg.selectAll('g.cm').data(marks, (d) => d.key).join((en) => {
+    const g = en.append('g').attr('class', 'cm cmk');
+    g.append('rect').attr('class', 'dia').attr('x', -5.5).attr('y', -5.5).attr('width', 11).attr('height', 11);
+    g.append('text').attr('x', 10).attr('y', 0).text((d) => d.n);
+    return g;
+  }).classed('cur', (d) => d.cur);
+  const lb = mg.selectAll('g.clab').data(lab, (d) => d.key).join((en) => {
+    const g = en.append('g').attr('class', 'clab cmk');
+    g.append('text').attr('class', 'n'); g.append('text').attr('class', 's').attr('y', 17);
+    return g;
+  });
+  lb.select('text.n').text((d) => d.n); lb.select('text.s').text((d) => d.sub);
+  const ar = mg.selectAll('g.carrow').data(arrow, (d) => d.key).join((en) => {
+    const g = en.append('g').attr('class', 'carrow cmk');
+    g.append('path').attr('d', 'M7,0L-6,-6L-3,0L-6,6Z');
+    return g;
+  }).classed('foe', (d) => d.foe);
+  if (curR.size()) {
+    const pts = st.path, dur = (animate ? 2400 : 0) / TTS.rate;
+    const set = (t) => {
+      const line = lineUpTo(pts, t);
+      curR.attr('d', path({ type: 'LineString', coordinates: line }));
+      const a = arrowAt(line); if (a) ar.each((d) => Object.assign(d, a));
+      scaleMarkers();
+    };
+    if (!dur) set(1);
+    else {
+      set(0.001);
+      CAMP.anim = d3.timer((el) => { const t = Math.min(1, el / dur); set(d3.easeCubicInOut(t)); if (t >= 1) { CAMP.anim.stop(); CAMP.anim = null; } });
+    }
+  }
+  scaleMarkers(); scheduleLabels();
+}
+function campFly(i) {
+  const c = CAMP.c, st = c.steps[i], b = campStep(c, i);
+  const pts = [];
+  const add = (fc) => { const bb = path.bounds(fc); if (isFinite(bb[0][0])) pts.push(bb[0], bb[1]); };
+  if (b.neu) add({ type: 'FeatureCollection', features: b.neu.frags.map((f) => f.geo) });
+  (st.path || []).forEach((q) => pts.push(projection(q)));
+  (st.at || []).forEach((a) => pts.push(projection([a[0], a[1]])));
+  if (!pts.length && b.cum) add({ type: 'FeatureCollection', features: b.cum.frags.map((f) => f.geo) });
+  if (!pts.length) return;
+  const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
+  const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+  const v = viewRect(), m = isMobile() ? 36 : 70;
+  const k = clamp(Math.min((v.w - 2 * m) / Math.max(x1 - x0, 30), (v.h - 2 * m) / Math.max(y1 - y0, 30)), 1, 6);
+  svg.transition().duration(1300).call(zoom.transform, clampT(v.cx - k * (x0 + x1) / 2, v.cy - k * (y0 + y1) / 2, k));
 }
 
 /* ---- 測驗 ---- */
@@ -3563,6 +4021,11 @@ function renderSearch() {
     if (!hs.length) return;
     out.push({ score: 0.7, html: '<div class="sr"><div class="st"><i class="k rt">路線</i>' + esc(r[2]) + '</div><div class="chips">' + hs.map((i) => '<button class="chip" data-go="route" data-i="' + i + '" data-key="' + esc('r' + r[2]) + '">' + yl(i) + '</button>').join('') + '</div></div>' });
   });
+  (typeof CAMPAIGNS !== 'undefined' ? CAMPAIGNS : []).forEach((c) => {
+    const hay = c.name + c.leader + c.label + c.steps.map((st) => st.t + (st.who || '') + (st.at || []).map((a) => a[2]).join('')).join('');
+    if (!hay.includes(q)) return;
+    out.push({ score: c.name.includes(q) ? 0.2 : 0.9, html: '<div class="sr" data-camp="' + esc(c.id) + '"><div class="st"><i class="k camp">擴張</i>' + esc(c.name) + '<span class="sy">' + esc(c.span) + '</span></div></div>' });
+  });
   out.sort((a, b) => a.score - b.score);
   box.innerHTML = out.length ? out.slice(0, 40).map((o) => o.html).join('') : '<div class="hint">找不到「' + esc(q) + '」，換個關鍵字試試看。</div>';
 }
@@ -3609,10 +4072,15 @@ function syncFullscreen() { const on = !!fsEl(); $('#bFullT').textContent = on ?
 function bindUI() {
   $('#tPrev').onclick = () => { stopPlay(); userSet(S.idx - 1); };
   $('#tNext').onclick = () => { stopPlay(); userSet(S.idx + 1); };
-  $('#tPlay').onclick = () => (S.playing ? stopPlay() : startPlay());
+  $('#tPlay').onclick = () => (CAMP.c ? campClose(true) : S.playing ? stopPlay() : startPlay());
   $('#bFull').onclick = toggleFullscreen;
   document.addEventListener('fullscreenchange', syncFullscreen); document.addEventListener('webkitfullscreenchange', syncFullscreen);
-  $('#capStop').onclick = stopPlay;
+  $('#capStop').onclick = () => (CAMP.c ? campClose(true) : stopPlay());
+  $('#cPrev').onclick = () => campGo(CAMP.i - 1);
+  $('#cNext').onclick = () => campGo(CAMP.i + 1);
+  $('#cPP').onclick = () => { if (!CAMP.c) return; if (S.playing) campPause(); else campPlay(CAMP.i >= CAMP.c.steps.length - 1 && S.si >= S.sents.length ? 0 : Math.max(0, CAMP.i)); };
+  $('#cDots').onclick = (e) => { const b = e.target.closest('.cd'); if (b) campGo(+b.dataset.s); };
+  document.addEventListener('click', (e) => { const b = e.target.closest('[data-camp]'); if (b) { e.stopPropagation(); campStart(b.dataset.camp); } });
   $('#capVoice').onclick = toggleVoice;
   $('#capRate').onclick = cycleRate; setRateLabel();
   $('#capVoiceSel').onchange = (e) => {
@@ -3650,6 +4118,7 @@ function bindUI() {
     if (e.target.tagName === 'INPUT') return;
     if (e.key === 'ArrowLeft') { stopPlay(); userSet(S.idx - 1); }
     else if (e.key === 'ArrowRight') { stopPlay(); userSet(S.idx + 1); }
+    else if (e.key === 'Escape' && CAMP.c) campClose(true);
     else if (e.key === 'Escape') { if (!$('#about').classList.contains('hidden')) closeAbout(); else if (S.open) closePanel(S.open); }
   });
   window.addEventListener('hashchange', () => { const i = idxFromHash(); if (i != null && i !== S.idx) setSnapshot(i); });
@@ -3717,6 +4186,7 @@ async function boot() {
   const work = () => { const i = queue.shift(); if (i == null) return; buildSnapshot(i); idle(work); };
   idle(work);
 }
+window.__hmCamp = { start: campStart, pause: campPause, go: campGo, area: (y, id) => { const i = SNAPS.findIndex((x) => x.y === y); const q = buildSnapshot(i).byId.get(id); return q ? q.area : 0; } };
 window.__hmAvatar = (idx, id) => { const prev = S.idx; S.idx = idx; const p = buildSnapshot(idx).byId.get(id); const out = p ? avatarSVG(p, 96) + '<div>' + p.label + '<br><small>' + rulerName(p.ruler) + '</small></div>' : ''; S.idx = prev; return out; };
 $('#ldRetry').onclick = boot;
 boot();
